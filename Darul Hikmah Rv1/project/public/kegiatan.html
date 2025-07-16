@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kegiatan Santri - Pondok Pesantren Darul Hikmah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#059669',
+            secondary: '#10b981',
+            accent: '#34d399'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50">
+  <!-- Navigation -->
+  <nav class="bg-primary text-white shadow-lg">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-4">
+          <img src="PNG LOGO HIJAU.png" alt="Logo Pondok Pesantren Darul Hikmah" class="h-10 w-auto">
+          <div class="text-xl font-bold">Pondok Pesantren Darul Hikmah</div>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <a href="index.html" class="hover:text-accent transition-colors">Beranda</a>
+          <a href="artikel.html" class="hover:text-accent transition-colors">Artikel</a>
+          <a href="kajian.html" class="hover:text-accent transition-colors">Kajian</a>
+          <a href="pendidikan.html" class="hover:text-accent transition-colors">Pendidikan</a>
+          <a href="kegiatan.html" class="text-accent">Kegiatan</a>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-white hover:text-accent">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden pb-4">
+        <a href="index.html" class="block py-2 hover:text-accent">Beranda</a>
+        <a href="artikel.html" class="block py-2 hover:text-accent">Artikel</a>
+        <a href="kajian.html" class="block py-2 hover:text-accent">Kajian</a>
+        <a href="pendidikan.html" class="block py-2 hover:text-accent">Pendidikan</a>
+        <a href="kegiatan.html" class="block py-2 text-accent">Kegiatan</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-primary to-secondary text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 id="page-title" class="text-4xl md:text-5xl font-bold mb-4">Kegiatan Santri</h1>
+      <p id="page-description" class="text-xl">Berbagai kegiatan pengembangan diri untuk membentuk karakter santri</p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <!-- Konten Kegiatan Santri -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <div id="content-image" class="hidden">
+            <img id="main-image" src="" alt="" class="w-full h-96 object-cover">
+          </div>
+          
+          <div class="p-8">
+            <div id="content-video" class="hidden mb-6">
+              <video id="main-video" controls class="w-full rounded-lg">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            
+            <div id="content-text" class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <p>Kegiatan santri di Pondok Pesantren Darul Hikmah dirancang untuk mengembangkan potensi diri secara optimal. Melalui berbagai program kegiatan, santri dibimbing untuk menjadi pribadi yang berkarakter, berbudaya, dan siap menghadapi tantangan zaman.</p>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Kegiatan Harian</h3>
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-semibold mb-3">Pagi Hari</h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>• 04:30 - Qiyamul Lail (Tahajjud)</li>
+                      <li>• 05:00 - Shalat Subuh Berjamaah</li>
+                      <li>• 05:30 - Kajian Kitab Kuning</li>
+                      <li>• 06:30 - Sarapan & Persiapan Sekolah</li>
+                      <li>• 07:00 - Pembelajaran Formal</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-3">Siang & Malam</h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>• 12:00 - Shalat Dzuhur & Makan Siang</li>
+                      <li>• 13:00 - Istirahat</li>
+                      <li>• 15:30 - Shalat Ashar & Kajian</li>
+                      <li>• 18:00 - Shalat Maghrib & Makan Malam</li>
+                      <li>• 19:30 - Shalat Isya & Kajian Malam</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Ekstrakurikuler</h3>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-primary/10 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Olahraga</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Sepak Bola</li>
+                    <li>• Bulu Tangkis</li>
+                    <li>• Tenis Meja</li>
+                    <li>• Silat</li>
+                    <li>• Panahan</li>
+                  </ul>
+                </div>
+                <div class="bg-secondary/10 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Seni & Budaya</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Qasidah</li>
+                    <li>• Kaligrafi</li>
+                    <li>• Hadroh</li>
+                    <li>• Tari Islami</li>
+                    <li>• Teater</li>
+                  </ul>
+                </div>
+                <div class="bg-accent/10 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Keterampilan</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Bahasa Arab</li>
+                    <li>• Bahasa Inggris</li>
+                    <li>• Komputer</li>
+                    <li>• Kewirausahaan</li>
+                    <li>• Pertanian</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Organisasi Santri</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="border border-gray-200 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">OSPP (Organisasi Santri Pondok Pesantren)</h4>
+                  <p class="text-sm text-gray-600 mb-2">Organisasi induk yang menaungi semua kegiatan santri</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Pengurus Harian</li>
+                    <li>• Bidang Pendidikan</li>
+                    <li>• Bidang Keagamaan</li>
+                    <li>• Bidang Olahraga</li>
+                  </ul>
+                </div>
+                <div class="border border-gray-200 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Divisi Khusus</h4>
+                  <p class="text-sm text-gray-600 mb-2">Unit-unit khusus untuk pengembangan talenta</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Tim Qira'ah</li>
+                    <li>• Tim Debat</li>
+                    <li>• Tim Olimpiade</li>
+                    <li>• Tim Jurnalistik</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Kegiatan Mingguan</h3>
+              <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Muhadhoroh (Latihan Pidato)</h4>
+                  <p class="text-sm text-gray-600">Setiap Kamis malam, santri berlatih pidato dalam bahasa Arab, Indonesia, dan Inggris</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Ro'an (Kerja Bakti)</h4>
+                  <p class="text-sm text-gray-600">Setiap Jumat pagi, gotong royong membersihkan lingkungan pesantren</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Rihlah (Rekreasi Edukatif)</h4>
+                  <p class="text-sm text-gray-600">Kunjungan ke tempat-tempat bersejarah dan edukatif setiap bulan</p>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Program Tahunan</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-primary/5 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Pekan Kreativitas Santri</h4>
+                  <p class="text-sm text-gray-600 mb-2">Festival tahunan untuk menampilkan kreativitas santri</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Lomba Qasidah</li>
+                    <li>• Pameran Kaligrafi</li>
+                    <li>• Kompetisi Debat</li>
+                    <li>• Pentas Seni</li>
+                  </ul>
+                </div>
+                <div class="bg-secondary/5 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Kemah Dakwah</h4>
+                  <p class="text-sm text-gray-600 mb-2">Kegiatan dakwah dan pengabdian masyarakat</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Ceramah di Masjid</li>
+                    <li>• Mengajar TPA</li>
+                    <li>• Bakti Sosial</li>
+                    <li>• Penyuluhan Agama</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Fasilitas Kegiatan</h3>
+              <div class="grid md:grid-cols-4 gap-4">
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl mb-2">🏟️</div>
+                  <h4 class="font-semibold text-sm">Lapangan Olahraga</h4>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl mb-2">🎭</div>
+                  <h4 class="font-semibold text-sm">Aula Serbaguna</h4>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl mb-2">💻</div>
+                  <h4 class="font-semibold text-sm">Lab Komputer</h4>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl mb-2">🌱</div>
+                  <h4 class="font-semibold text-sm">Kebun Pembelajaran</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Pondok Pesantren Darul Hikmah</h3>
+          <p class="text-gray-300 mb-4">
+            Mendidik generasi muslim yang beriman, berilmu, dan berakhlak mulia melalui pendidikan Islam yang komprehensif.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Menu</h4>
+          <div class="space-y-2">
+            <a href="index.html" class="block text-gray-300 hover:text-white">Beranda</a>
+            <a href="artikel.html" class="block text-gray-300 hover:text-white">Artikel</a>
+            <a href="kajian.html" class="block text-gray-300 hover:text-white">Kajian</a>
+            <a href="pendidikan.html" class="block text-gray-300 hover:text-white">Pendidikan</a>
+            <a href="kegiatan.html" class="block text-gray-300 hover:text-white">Kegiatan</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+          <div class="space-y-2 text-gray-300">
+            <p>📍 Jl. Pendidikan No. 123, Kota</p>
+            <p>📞 (021) 1234-5678</p>
+            <p>📧 info@darulhikmah.ac.id</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sosial Media -->
+      <div class="border-t border-gray-700 mt-8 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-300">&copy; 2024 Pondok Pesantren Darul Hikmah. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.748-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.024-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.748-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Load page content
+    async function loadContent() {
+      try {
+        const response = await fetch('/api/content');
+        const content = await response.json();
+        
+        if (content.kegiatan) {
+          const kegiatanContent = content.kegiatan;
+          
+          // Update title and description
+          if (kegiatanContent.title) {
+            document.getElementById('page-title').textContent = kegiatanContent.title;
+          }
+          
+          if (kegiatanContent.description) {
+            document.getElementById('page-description').textContent = kegiatanContent.description;
+          }
+          
+          // Show image if exists
+          if (kegiatanContent.image) {
+            document.getElementById('main-image').src = kegiatanContent.image;
+            document.getElementById('main-image').alt = kegiatanContent.title;
+            document.getElementById('content-image').classList.remove('hidden');
+          }
+          
+          // Show video if exists
+          if (kegiatanContent.video) {
+            document.getElementById('main-video').querySelector('source').src = kegiatanContent.video;
+            document.getElementById('main-video').load();
+            document.getElementById('content-video').classList.remove('hidden');
+          }
+        }
+      } catch (error) {
+        console.error('Error loading content:', error);
+      }
+    }
+    
+    // Load content on page load
+    loadContent();
+  </script>
+</body>
+</html>
