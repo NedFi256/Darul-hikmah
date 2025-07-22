@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Line clamp utilities for text truncation */
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Main content image landscape */
+.main-content-image {
+  aspect-ratio: 16 / 9 !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+}
+
+.main-content-container {
+  aspect-ratio: 16 / 9 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+/* Aspect ratio utilities */
+@layer utilities {
+  .aspect-video {
+    aspect-ratio: 16 / 9 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .aspect-landscape {
+    aspect-ratio: 16 / 9 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Force landscape for all gallery images */
+  .gallery-image {
+    aspect-ratio: 16 / 9 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  
+  .gallery-container {
+    aspect-ratio: 16 / 9 !important;
+    overflow: hidden !important;
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+  }
+}
