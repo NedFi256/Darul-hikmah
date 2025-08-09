@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kegiatan Santri - Pondok Pesantren Darul Hikmah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#059669',
+            secondary: '#10b981',
+            accent: '#34d399'
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'fade-in-left': 'fadeInLeft 0.8s ease-out forwards',
+            'fade-in-right': 'fadeInRight 0.8s ease-out forwards',
+            'bounce-slow': 'bounce 2s infinite',
+            'pulse-slow': 'pulse 3s infinite',
+            'float': 'float 3s ease-in-out infinite'
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' }
+            },
+            fadeInLeft: {
+              '0%': { opacity: '0', transform: 'translateX(-30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' }
+            },
+            fadeInRight: {
+              '0%': { opacity: '0', transform: 'translateX(30px)' },
+              '100%': { opacity: '1', transform: 'translateX(0)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+  <style>
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .hover-lift {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #059669, #10b981, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #059669, #10b981, #34d399);
+      z-index: 9999;
+      transition: width 0.3s ease;
+    }
+  </style>
+  
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-indicator" id="scroll-indicator"></div>
+
+  <!-- Navigation -->
+  <nav class="bg-primary text-white shadow-lg fixed w-full top-0 z-50 transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-4 reveal">
+          <img src="PNG LOGO HIJAU.png" alt="Logo Pondok Pesantren Darul Hikmah" class="h-10 w-auto animate-float">
+          <div class="text-xl font-bold text-white drop-shadow-lg">Pondok Pesantren Darul Hikmah</div>
+        </div>
+        <div class="hidden md:flex space-x-6 reveal">
+          <a href="index.html" class="hover:text-accent transition-all duration-300 hover:scale-110">Beranda</a>
+          <a href="artikel.html" class="hover:text-accent transition-all duration-300 hover:scale-110">Artikel</a>
+          <a href="kajian.html" class="hover:text-accent transition-all duration-300 hover:scale-110">Kajian</a>
+          <a href="pendidikan.html" class="hover:text-accent transition-all duration-300 hover:scale-110">Pendidikan</a>
+          <a href="kegiatan.html" class="text-accent">Kegiatan</a>
+        </div>
+        <div class="md:hidden">
+          <button id="mobile-menu-btn" class="text-white hover:text-accent transition-all duration-300 hover:scale-110">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden pb-4">
+        <a href="index.html" class="block py-2 hover:text-accent">Beranda</a>
+        <a href="artikel.html" class="block py-2 hover:text-accent">Artikel</a>
+        <a href="kajian.html" class="block py-2 hover:text-accent">Kajian</a>
+        <a href="pendidikan.html" class="block py-2 hover:text-accent">Pendidikan</a>
+        <a href="kegiatan.html" class="block py-2 text-accent">Kegiatan</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-primary to-secondary text-white py-20 mt-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-10"></div>
+    <div class="absolute top-10 left-10 w-20 h-20 bg-white opacity-10 rounded-full animate-bounce-slow"></div>
+    <div class="absolute bottom-10 right-10 w-16 h-16 bg-accent opacity-20 rounded-full animate-pulse-slow"></div>
+    <div class="absolute top-1/2 left-1/4 w-12 h-12 bg-secondary opacity-15 rounded-full animate-float"></div>
+    
+    <div class="container mx-auto px-4 text-center">
+      <h1 id="page-title" class="text-4xl md:text-5xl font-bold mb-4 reveal animate-fade-in-up">Kegiatan Santri</h1>
+      <p id="page-description" class="text-xl reveal animate-fade-in-up" style="animation-delay: 0.2s;">Berbagai kegiatan pengembangan diri untuk membentuk karakter santri</p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <!-- Konten Kegiatan Santri -->
+  <section class="py-16 relative">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto reveal animate-fade-in-up">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover-lift">
+          <div id="content-image" class="hidden">
+            <div class="main-content-container">
+              <img id="main-image" src="" alt="" class="main-content-image">
+            </div>
+          </div>
+          
+          <div class="p-8">
+            <div id="content-video" class="hidden mb-6">
+              <video id="main-video" controls class="w-full rounded-lg">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            
+            <div id="content-text" class="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+              <p>Kegiatan santri di Pondok Pesantren Darul Hikmah dirancang untuk mengembangkan potensi diri secara optimal. Melalui berbagai program kegiatan, santri dibimbing untuk menjadi pribadi yang berkarakter, berbudaya, dan siap menghadapi tantangan zaman.</p>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Kegiatan Harian</h3>
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-semibold mb-3">Pagi Hari</h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>• 04:30 - Qiyamul Lail (Tahajjud)</li>
+                      <li>• 05:00 - Shalat Subuh Berjamaah</li>
+                      <li>• 05:30 - Kajian Kitab Kuning</li>
+                      <li>• 06:30 - Sarapan & Persiapan Sekolah</li>
+                      <li>• 07:00 - Pembelajaran Formal</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold mb-3">Siang & Malam</h4>
+                    <ul class="space-y-2 text-sm">
+                      <li>• 12:00 - Shalat Dzuhur & Makan Siang</li>
+                      <li>• 13:00 - Istirahat</li>
+                      <li>• 15:30 - Shalat Ashar & Kajian</li>
+                      <li>• 18:00 - Shalat Maghrib & Makan Malam</li>
+                      <li>• 19:30 - Shalat Isya & Kajian Malam</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Ekstrakurikuler</h3>
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-primary/10 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Olahraga</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Sepak Bola</li>
+                    <li>• Bulu Tangkis</li>
+                    <li>• Tenis Meja</li>
+                    <li>• Silat</li>
+                    <li>• Panahan</li>
+                  </ul>
+                </div>
+                <div class="bg-secondary/10 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Seni & Budaya</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Qasidah</li>
+                    <li>• Kaligrafi</li>
+                    <li>• Hadroh</li>
+                    <li>• Tari Islami</li>
+                    <li>• Teater</li>
+                  </ul>
+                </div>
+                <div class="bg-accent/10 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Keterampilan</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Bahasa Arab</li>
+                    <li>• Bahasa Inggris</li>
+                    <li>• Komputer</li>
+                    <li>• Kewirausahaan</li>
+                    <li>• Pertanian</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Organisasi Santri</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="border border-gray-200 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">OSPP (Organisasi Santri Pondok Pesantren)</h4>
+                  <p class="text-sm text-gray-600 mb-2">Organisasi induk yang menaungi semua kegiatan santri</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Pengurus Harian</li>
+                    <li>• Bidang Pendidikan</li>
+                    <li>• Bidang Keagamaan</li>
+                    <li>• Bidang Olahraga</li>
+                  </ul>
+                </div>
+                <div class="border border-gray-200 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Divisi Khusus</h4>
+                  <p class="text-sm text-gray-600 mb-2">Unit-unit khusus untuk pengembangan talenta</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Tim Qira'ah</li>
+                    <li>• Tim Debat</li>
+                    <li>• Tim Olimpiade</li>
+                    <li>• Tim Jurnalistik</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Kegiatan Mingguan</h3>
+              <div class="space-y-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Muhadhoroh (Latihan Pidato)</h4>
+                  <p class="text-sm text-gray-600">Setiap Kamis malam, santri berlatih pidato dalam bahasa Arab, Indonesia, dan Inggris</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Ro'an (Kerja Bakti)</h4>
+                  <p class="text-sm text-gray-600">Setiap Jumat pagi, gotong royong membersihkan lingkungan pesantren</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Rihlah (Rekreasi Edukatif)</h4>
+                  <p class="text-sm text-gray-600">Kunjungan ke tempat-tempat bersejarah dan edukatif setiap bulan</p>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Program Tahunan</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-primary/5 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Pekan Kreativitas Santri</h4>
+                  <p class="text-sm text-gray-600 mb-2">Festival tahunan untuk menampilkan kreativitas santri</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Lomba Qasidah</li>
+                    <li>• Pameran Kaligrafi</li>
+                    <li>• Kompetisi Debat</li>
+                    <li>• Pentas Seni</li>
+                  </ul>
+                </div>
+                <div class="bg-secondary/5 p-4 rounded-lg">
+                  <h4 class="font-semibold mb-2">Kemah Dakwah</h4>
+                  <p class="text-sm text-gray-600 mb-2">Kegiatan dakwah dan pengabdian masyarakat</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Ceramah di Masjid</li>
+                    <li>• Mengajar TPA</li>
+                    <li>• Bakti Sosial</li>
+                    <li>• Penyuluhan Agama</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <h3 class="text-2xl font-semibold text-primary mt-8 mb-4">Fasilitas Kegiatan</h3>
+              <div class="grid md:grid-cols-4 gap-4">
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl mb-2">🏟️</div>
+                  <h4 class="font-semibold text-sm">Lapangan Olahraga</h4>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl mb-2">🎭</div>
+                  <h4 class="font-semibold text-sm">Aula Serbaguna</h4>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl mb-2">💻</div>
+                  <h4 class="font-semibold text-sm">Lab Komputer</h4>
+                </div>
+                <div class="text-center p-4 bg-gray-50 rounded-lg">
+                  <div class="text-2xl mb-2">🌱</div>
+                  <h4 class="font-semibold text-sm">Kebun Pembelajaran</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Gallery Section -->
+        <div class="mt-12 reveal animate-fade-in-up" style="animation-delay: 0.4s;">
+          <h2 class="text-3xl font-bold text-center text-gray-800 mb-8 gradient-text">Gallery Kegiatan</h2>
+          <div id="kegiatan-gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Gallery items will be loaded here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-4">Pondok Pesantren Darul Hikmah</h3>
+          <p class="text-gray-300 mb-4">
+            Mendidik generasi muslim yang beriman, berilmu, dan berakhlak mulia melalui pendidikan Islam yang komprehensif.
+          </p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Menu</h4>
+          <div class="space-y-2">
+            <a href="index.html" class="block text-gray-300 hover:text-white">Beranda</a>
+            <a href="artikel.html" class="block text-gray-300 hover:text-white">Artikel</a>
+            <a href="kajian.html" class="block text-gray-300 hover:text-white">Kajian</a>
+            <a href="pendidikan.html" class="block text-gray-300 hover:text-white">Pendidikan</a>
+            <a href="kegiatan.html" class="block text-gray-300 hover:text-white">Kegiatan</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Kontak</h4>
+          <div class="space-y-2 text-gray-300">
+            <p>📍 Jl. Pendidikan No. 123, Kota</p>
+            <p>📞 (021) 1234-5678</p>
+            <p>📧 info@darulhikmah.ac.id</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Sosial Media -->
+      <div class="border-t border-gray-700 mt-8 pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-300">&copy; 2024 Pondok Pesantren Darul Hikmah. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="https://www.instagram.com/darulhikmah75?igsh=Z2NpZGpjNzdhdndl" target="_blank" class="text-gray-300 hover:text-pink-400 transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/share/1FUGrc6G23/" target="_blank" class="text-gray-300 hover:text-blue-400 transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="https://www.tiktok.com/@darul.hikmah55?_t=ZS-8y5oXwMmhtZ&_r=1" target="_blank" class="text-gray-300 hover:text-red-400 transition-colors">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005.76 20.5a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.8-.5z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Load page content
+    async function loadContent() {
+      try {
+        const response = await fetch('/api/content');
+        const content = await response.json();
+        
+        if (content.kegiatan) {
+          const kegiatanContent = content.kegiatan;
+          
+          // Update title and description
+          if (kegiatanContent.title) {
+            document.getElementById('page-title').textContent = kegiatanContent.title;
+          }
+          
+          if (kegiatanContent.description) {
+            document.getElementById('page-description').textContent = kegiatanContent.description;
+          }
+          
+          // Show image if exists
+          if (kegiatanContent.image) {
+            document.getElementById('main-image').src = kegiatanContent.image;
+            document.getElementById('main-image').alt = kegiatanContent.title;
+            document.getElementById('content-image').classList.remove('hidden');
+          }
+          
+          // Show video if exists
+          if (kegiatanContent.video) {
+            document.getElementById('main-video').querySelector('source').src = kegiatanContent.video;
+            document.getElementById('main-video').load();
+            document.getElementById('content-video').classList.remove('hidden');
+          }
+        }
+      } catch (error) {
+        console.error('Error loading content:', error);
+      }
+    }
+    
+    // Load content on page load
+    loadContent();
+    
+    // Load gallery
+    async function loadGallery() {
+      try {
+        const response = await fetch('/api/gallery/kegiatan');
+        const gallery = await response.json();
+        
+        const container = document.getElementById('kegiatan-gallery');
+        container.innerHTML = '';
+        
+        if (gallery.length === 0) {
+          container.innerHTML = '<p class="text-gray-500 text-center">Belum ada media.</p>';
+          return;
+        }
+        
+        gallery.forEach(media => {
+          const mediaElement = document.createElement('div');
+          mediaElement.className = 'bg-white rounded-lg shadow-md overflow-hidden hover-lift reveal animate-fade-in-up';
+          
+          let mediaContent = '';
+          if (media.image) {
+            mediaContent = `<div class="gallery-container"><img src="${media.image}" alt="${media.title}" class="gallery-image"></div>`;
+          } else if (media.video) {
+            mediaContent = `<div class="gallery-container"><video src="${media.video}" class="gallery-image" controls></video></div>`;
+          }
+          
+          mediaElement.innerHTML = `
+            ${mediaContent}
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">${media.title}</h3>
+              <p class="text-sm text-gray-600 line-clamp-3">${media.description}</p>
+            </div>
+          `;
+          container.appendChild(mediaElement);
+        });
+      } catch (error) {
+        console.error('Error loading gallery:', error);
+      }
+    }
+    
+    // Load gallery on page load
+    loadGallery();
+    
+    // Scroll reveal animation
+    function revealOnScroll() {
+      const reveals = document.querySelectorAll('.reveal');
+      
+      reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < windowHeight - elementVisible) {
+          element.classList.add('active');
+        }
+      });
+    }
+    
+    // Scroll progress indicator
+    function updateScrollProgress() {
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      
+      document.getElementById('scroll-indicator').style.width = scrollPercent + '%';
+    }
+    
+    // Navbar scroll effect
+    function handleNavbarScroll() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.style.backgroundColor = 'rgba(5, 150, 105, 0.9)';
+        navbar.style.backdropFilter = 'blur(10px)';
+      } else {
+        navbar.style.backgroundColor = '#059669';
+        navbar.style.backdropFilter = 'none';
+      }
+    }
+    
+    // Event listeners
+    window.addEventListener('scroll', () => {
+      revealOnScroll();
+      updateScrollProgress();
+      handleNavbarScroll();
+    });
+    
+    // Initial calls
+    revealOnScroll();
+    updateScrollProgress();
+  </script>
+</body>
+</html>
